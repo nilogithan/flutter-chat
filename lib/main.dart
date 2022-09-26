@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:overlay_support/overlay_support.dart';
 import 'package:push_notification/home/home_view.dart';
+import 'package:push_notification/routes.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         home:  HomeView(),
+        routes: Routes.routes,
       ),
     );
   }

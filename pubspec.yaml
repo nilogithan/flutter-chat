@@ -17,6 +17,7 @@ dependencies:
   stacked: ^3.0.0
   firebase_core: ^1.23.0
   overlay_support: ^2.0.1
+  cached_network_image: ^3.2.1
 
 dev_dependencies:
   flutter_test:
@@ -26,3 +27,18 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/
+    - assets/svg/
+    - assets/png/
+  fonts:
+    - family: LatoBlack
+      fonts:
+        - asset: assets/font/lato_black/Lato-Light.ttf
+          weight: 300
+        - asset: assets/font/lato_black/Lato-Regular.ttf
+          weight: 400
+        - asset: assets/font/lato_black/Lato-Bold.ttf
+          weight: 700
+        - asset: assets/font/lato_black/Lato-Black.ttf
+          weight: 900

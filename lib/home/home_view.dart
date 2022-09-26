@@ -1,4 +1,3 @@
-
 // ignore_for_file: use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
@@ -9,34 +8,55 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<HomeViewModel>.reactive(
-      builder: (context, model, child){
-        return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text("Flutter push notification",style: TextStyle(color: Colors.black)),
-          centerTitle: true,
-        ),
-        body: const Center(
-          child: Text("Flutter push notification with firebase",style: TextStyle(color: Colors.black)),
-        ),
-        floatingActionButton: InkWell(
-          onTap: ()=> model.triggerNotification(context:context),
-          child: Container(
-            padding: const EdgeInsets.all(16.0),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(50.0),
-              color: Colors.blue
+        builder: (context, model, child) {
+          return SafeArea(
+              child: Scaffold(
+            appBar: AppBar(
+              title: const Text("Flutter push notification",
+                  style: TextStyle(color: Colors.black)),
+              centerTitle: true,
             ),
-            child: const Text("Notification",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 16.0)),
-          ),
-        ),
-      )
-      );
-      },
-       onModelReady: (model) => model.initialise(context),
-        viewModelBuilder: () => HomeViewModel()
-    );
-    
-    
+            body: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Center(
+                  child: Text("Flutter push notification with firebase",
+                      style: TextStyle(color: Colors.black)),
+                ),
+                const SizedBox(height: 16.0,),
+                InkWell(
+                  onTap: () => model.moveChatList(context: context),
+                  child: Container(
+                    padding: const EdgeInsets.all(16.0),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50.0),
+                        color: Colors.blue),
+                    child: const Text("Chat List",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16.0)),
+                  ),
+                ),
+              ],
+            ),
+            floatingActionButton: InkWell(
+              onTap: () => model.triggerNotification(context: context),
+              child: Container(
+                padding: const EdgeInsets.all(16.0),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50.0),
+                    color: Colors.blue),
+                child: const Text("Notification",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16.0)),
+              ),
+            ),
+          ));
+        },
+        onModelReady: (model) => model.initialise(context),
+        viewModelBuilder: () => HomeViewModel());
   }
 }

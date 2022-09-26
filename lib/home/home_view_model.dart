@@ -2,6 +2,7 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:overlay_support/overlay_support.dart';
+import 'package:push_notification/chat_list/chat_list_view.dart';
 import 'package:stacked/stacked.dart';
 
 class HomeViewModel extends BaseViewModel{
@@ -21,8 +22,8 @@ final FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
 
   }
 
-  triggerNotification({required BuildContext context,String? title,String? message}) {
-    toast('Hello world!');
+  triggerNotification({required BuildContext context,String? title = "",String? message = ""}) {
+    // toast('Hello world!');
 
     // show a notification at top of screen.
     showSimpleNotification(
@@ -45,5 +46,9 @@ final FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
     } catch (e, st) {
      debugPrint("exception : $e \n Stacktrace : $st");
     }
+  }
+
+  moveChatList({required BuildContext context}) {
+    Navigator.pushNamed(context, ChatListView.routeName);
   }
 }
